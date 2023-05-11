@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import data from '../Data/data.json';
-import Card from '../Redux/Card';
-import ModalCard from '../Redux/ModalCard';
+import Card from '../components/Card';
+import ModalCard from '../components/ModalCard';
 export default class Product extends Component {
     renderCardProduct = (data) => {
         return data.map(( object, index ) => {

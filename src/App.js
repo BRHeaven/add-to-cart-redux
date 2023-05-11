@@ -1,7 +1,7 @@
-import './components/css/main.css';
-import Header from './components/Layouts/Header';
-import Product from './components/Layouts/Product';
-import Footer from './components/Layouts/Footer';
+import './css/main.css';
+import Header from './Layouts/Header';
+import Product from './Layouts/Product';
+import Footer from './Layouts/Footer';
 
 function App() {
   return (
