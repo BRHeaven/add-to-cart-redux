@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 function ModalCart(props) {
     const renderCart = () => {
-      return props.cart.cart.map( (object, index) => {
+      return props.stateCart.cart.map( (object, index) => {
           return (
               <tr className="cardCart" key={index}>
                 <td>
@@ -37,7 +37,7 @@ function ModalCart(props) {
     };
     const totalPrice = () => {
         let total = 0; 
-        let array = props.cart.cart;
+        let array = props.stateCart.cart;
         for ( let i = 0; i < array.length; i++ ) {
           total += (array[i].price * array[i].quantity);
         }
@@ -80,31 +80,17 @@ function ModalCart(props) {
                           <p></p>
                         </th>
                       </tr>
-                      {renderCart()}
-                      <tr className="cardCart">
-                        <td>
-                          <p></p>
-                        </td>
-                        <td>
-                          <p></p>
-                        </td>
-                        <td>
-                          <p></p>
-                        </td>
-                        <td>
-                          <p></p>
-                        </td>
-                        <td>
-                          <p></p>
-                        </td>
-                        <td>
-                          <p>{totalPrice()}</p>
-                        </td>
-                        <td>
-                          <p></p>
-                        </td>
-                      </tr>
                     </thead>
+                    <tbody>
+                      {renderCart()}
+                    </tbody>
+                    <tfoot>
+                      <tr className='totalPriceCart'>
+                        <th colSpan={5}></th>
+                        <th>{totalPrice()}</th>
+                        <th></th>
+                      </tr>
+                    </tfoot>
                   </table>
                 </div>
                 <div className="modal-footer">
@@ -118,7 +104,7 @@ function ModalCart(props) {
 };
 const mapStateToProps = state => {
   return {
-    cart : state.stateCart
+    stateCart : state.stateCart
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -132,16 +118,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     quantityChange : (flag, id) => {
       let action = {};
-      if (flag === true) {
-        action = {
-          type : "increasingNumber",
-          id
-        }
-      } else {
-        action = {
-          type : "reduceNumber",
-          id
-        }
+      action = {
+        type : "quantityChange",
+        id,
+        flag
       };
       dispatch(action);
     }

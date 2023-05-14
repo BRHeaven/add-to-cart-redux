@@ -106,6 +106,13 @@
             }
         }
     }
+    .totalPriceCart {
+        th {
+            padding: 5px 10px;
+            border: 1px solid $color-black;
+            @include styleText( $fs-2, $fw-bold, $tt-uppercase, $ta-center, .2px);
+        }
+    }
 }
 
 #addToCart {

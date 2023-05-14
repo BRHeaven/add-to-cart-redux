@@ -514,6 +514,15 @@ footer {
   background-color: transparent;
   border: 1px solid #E53935;
 }
+.modalCart .totalPriceCart th {
+  padding: 5px 10px;
+  border: 1px solid #000000;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
 
 #addToCart .modal-content {
   width: 800px;
