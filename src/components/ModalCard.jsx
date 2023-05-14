@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 function ModalCard(props) {
     const checkProduct = (product) => {
-        console.log(product);
         if (product.id < 200) {
             let {id,name,ram,price,chip,sim,pin,cameraAfter,cameraBefore,src} = product;
             return (  <div className="modalContent">
@@ -194,14 +193,14 @@ function ModalCard(props) {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="titleModalCard">Chi Tiết</h5>
+            <h5 className="modal-title" id="titleModalCard">Product</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
           </div>
           <div className="modal-body">
             {renderBodyModal}
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>

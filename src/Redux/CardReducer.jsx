@@ -3,7 +3,7 @@
 const stateCard = {
   modalCard : {}
 };
-const cartReducer = ( state = stateCard, action) => {
+const cardReducer = ( state = stateCard, action ) => {
   switch ( action.type ) {
     case "setModalCard" :{
       state.modalCard = action.infoModalCard;
@@ -14,4 +14,4 @@ const cartReducer = ( state = stateCard, action) => {
   }
   return {...state}
 }
-export default cartReducer;
+export default cardReducer;

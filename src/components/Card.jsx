@@ -20,13 +20,27 @@ function Card(props) {
         </div>
         <div className='cardButton'>
             <button type="button" className="detailCard" data-bs-toggle="modal" data-bs-target="#detail" onClick={() => {props.modalCard(props.object)}}>detail</button>
-            <button type="submit" className='addToCartCard' onClick={() => {}}>add to cart</button>
+            <button type="submit" className='addToCartCard' onClick={() => {props.addToCart(props.object)}}>add to cart</button>
         </div>
     </div>
   )
 }
 const mapDispatchToProps = (dispatch) => {
     return {
+        addToCart : (product) => {
+            let infoProduct = {
+              id : product.id,
+              name : product.name,
+              price : product.price,
+              quantity : 1,
+              src : product.src
+            }
+            let action = {
+              type : "addToCart",
+              infoProduct
+            }
+            dispatch(action);
+        },
         modalCard : (product) => {
             let infoModalCard = {};
             if (product.id < 200) {

@@ -5,10 +5,14 @@
     margin: 0 auto;
     .modalImage {
         display: block;
-        padding: 2em 0;
+        padding: 1em 0 1em;
         img {
-            width: 100%;
+            display: block;
+            width: 70%;
+            height: 300px;
             margin: 0 auto;
+            background-size: cover;
+            background-position: center;
         }
     }
     .modalInfoDetail {
@@ -30,13 +34,17 @@
                     @include styleText( $fs-2, $fw-bold, $tt-uppercase, $ta-start, .2px);
                 }
                 .value {
-                    @include styleText( $fs-2, $fw-lighter, $tt-capitalize, $ta-start, .3px);
+                    @include styleText( $fs-2, unset, $tt-capitalize, $ta-start, .3px);
                     color: black;
                 }
             }
         }
     }
 }
+#titleModalCard {
+    @include styleText( $fs-2, $fw-bold, $tt-uppercase, $ta-center, 2px);
+}
+
 .modalCart {
     width: 100%;
     margin: 0 auto;
@@ -61,7 +69,7 @@
                 .addQuantity {
                     background-color: $color-green-600;
                     transition: all .3s;
-                    &:hover, &:focus {
+                    &:hover {
                         color: $color-green-600;
                         background-color: $color-transparent;
                         border: 1px solid $color-green-600;
@@ -70,7 +78,7 @@
                 .reduceQuantity {
                     background-color: $color-red-500;
                     transition: all .3s;
-                    &:hover, &:focus {
+                    &:hover {
                         color: $color-red-500;
                         background-color: $color-transparent;
                         border: 1px solid $color-red-500;
@@ -90,7 +98,7 @@
                 @include styleText( $fs-1, $fw-bold, $tt-uppercase, $ta-center, .2px);
                 @include colorText( $color-white, $color-red-600, 1px, $color-transparent, unset);
                 transition: all .3s;
-                &:hover, &:focus {
+                &:hover {
                     color: $color-red-600;
                     background-color: $color-transparent;
                     border: 1px solid $color-red-600;

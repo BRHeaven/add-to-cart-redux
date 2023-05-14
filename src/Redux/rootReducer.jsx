@@ -1,6 +1,10 @@
 import {combineReducers} from 'redux';
-import CartReducer from './CardReducer';
+import CardReducer from './CardReducer';
+import DataReducer from './DataReducer';
+import CartReducer from './CartReducer';
 const rootReducer = combineReducers({
-    stateCard : CartReducer
+    stateData : DataReducer,
+    stateCard : CardReducer,
+    stateCart : CartReducer,
 });
 export default rootReducer;

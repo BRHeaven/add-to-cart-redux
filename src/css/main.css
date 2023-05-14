@@ -382,11 +382,15 @@ footer {
 }
 .modalContent .modalImage {
   display: block;
-  padding: 2em 0;
+  padding: 1em 0 1em;
 }
 .modalContent .modalImage img {
-  width: 100%;
+  display: block;
+  width: 70%;
+  height: 300px;
   margin: 0 auto;
+  background-size: cover;
+  background-position: center;
 }
 .modalContent .modalInfoDetail {
   display: flex;
@@ -416,11 +420,19 @@ footer {
 }
 .modalContent .modalInfoDetail ul li .value {
   font-size: 18px;
-  font-weight: lighter;
+  font-weight: unset;
   text-transform: capitalize;
   text-align: start;
   letter-spacing: 0.3px;
   color: black;
+}
+
+#titleModalCard {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
 .modalCart {
@@ -455,7 +467,7 @@ footer {
   background-color: #43A047;
   transition: all 0.3s;
 }
-.modalCart .cardCart td .quantity .addQuantity:hover, .modalCart .cardCart td .quantity .addQuantity:focus {
+.modalCart .cardCart td .quantity .addQuantity:hover {
   color: #43A047;
   background-color: transparent;
   border: 1px solid #43A047;
@@ -464,7 +476,7 @@ footer {
   background-color: #EF5350;
   transition: all 0.3s;
 }
-.modalCart .cardCart td .quantity .reduceQuantity:hover, .modalCart .cardCart td .quantity .reduceQuantity:focus {
+.modalCart .cardCart td .quantity .reduceQuantity:hover {
   color: #EF5350;
   background-color: transparent;
   border: 1px solid #EF5350;
@@ -497,7 +509,7 @@ footer {
   border-radius: unset;
   transition: all 0.3s;
 }
-.modalCart .cardCart td button:hover, .modalCart .cardCart td button:focus {
+.modalCart .cardCart td button:hover {
   color: #E53935;
   background-color: transparent;
   border: 1px solid #E53935;

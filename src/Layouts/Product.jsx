@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import data from '../Data/data.json';
+import { connect } from 'react-redux';
 import Card from '../components/Card';
-import ModalCard from '../components/ModalCard';
-export default class Product extends Component {
+class Product extends Component {
     renderCardProduct = (data) => {
         return data.map(( object, index ) => {
             return <Card object={object} key={index}/>
         })
     }
-    phone = this.renderCardProduct(data.phone);
-    smartWatch = this.renderCardProduct(data.smartWatch);
-    tablet = this.renderCardProduct(data.tablet);
-    laptop = this.renderCardProduct(data.laptop);
+    renderQuantity = () => {
+      return this.props.cart.reduce((quantity,product,index) => {
+        return quantity += product.quantity;
+      },0)
+    }
+    phone = this.renderCardProduct(this.props.data.phone);
+    smartWatch = this.renderCardProduct(this.props.data.smartWatch);
+    tablet = this.renderCardProduct(this.props.data.tablet);
+    laptop = this.renderCardProduct(this.props.data.laptop);
   render() {
     return (
       <section>
         <div className="sectionCart">
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addToCart">giỏ hàng (0)<i className="fa fa-shopping-cart"></i></button>
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addToCart">cart  ({this.renderQuantity()})<i className="fa fa-shopping-cart"></i></button>
         </div>
         <div id='tabs'>
           <ul className="nav nav-pills" id="listNavProductTabs" role="tablist">
@@ -56,8 +60,14 @@ export default class Product extends Component {
             </div>
           </div>
         </div>
-        <ModalCard/>
       </section>
     )
   }
 }
+const mapStateToProps = state => {
+  return {
+    data : state.stateData,
+    cart : state.stateCart.cart
+  }
+}
+export default connect(mapStateToProps)(Product);
